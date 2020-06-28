@@ -9,6 +9,7 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "@types/video.js": "^7.3.10",
     "axios": "^0.19.2",
     "core-js": "^3.6.5",
     "vue": "^2.6.11",
@@ -64,7 +65,8 @@
       "comma-dangle": [
         "error",
         "never"
-      ]
+      ],
+      "class-methods-use-this": "off"
     },
     "overrides": [
       {
