@@ -1,19 +1,9 @@
 <template>
   <div class="video-control-overlay" @click="handleOverlayClick">
-    <button
-      v-if="type === 'play'"
-      type="button"
-      :style="
-        `background-image: url(${require('../assets/btn-play.png')}); background-size: 'cover'`
-      "
-    ></button>
-    <button
-      v-if="type === 'pause'"
-      type="button"
-      :style="
-        `background-image: url(${require('../assets/btn-pause.png')}); background-size: 'cover'`
-      "
-    ></button>
+    <button class="video-control-overlay__button">
+      <img v-if="type === 'play'" :src="require('../assets/btn-play.png')" />
+      <img v-if="type === 'pause'" :src="require('../assets/btn-pause.png')" data-type="pause"/>
+    </button>
   </div>
 </template>
 
@@ -41,14 +31,26 @@ export default class VideoControlIcons extends Vue {
   z-index: 1;
   cursor: pointer;
 
-  button {
+  &__button {
     position: relative;
-    top: 50%;
-    left: 50%;
-    height: 46px;
-    width: 34px;
+    top: calc(50% - 23px);
+    left: calc(50% - 17px);
+    padding: 20px 27px;
+    border-radius: 50%;
+
     &:focus {
-      background-color: #FFD700;
+      background-color: #ffd700;
+    }
+
+    img {
+      height: 46px;
+      width: 34px;
+      margin-left: 7px;
+      margin-top: 3px;
+
+      &[data-type="pause"] {
+        margin-left:1px;
+      }
     }
   }
 }
