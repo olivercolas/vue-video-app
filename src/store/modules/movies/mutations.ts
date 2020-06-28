@@ -1,10 +1,10 @@
 import { MutationTree } from 'vuex';
-import { MovieState } from './index';
+import { MovieState } from './models';
 
-export const mutations: MutationTree<MovieState> = {
-    ADD_MOVIES(state, payload) {
-        state = payload
-    },
+const mutations: MutationTree<MovieState> = {
+  ADD_MOVIES(state, payload) {
+    state.list = payload;
+  }
 };
 
 export default mutations;

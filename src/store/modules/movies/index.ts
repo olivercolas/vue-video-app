@@ -1,22 +1,20 @@
 import { Module } from 'vuex';
-import { RootState } from '../../index';
-import mutations from './mutations';
+import { RootState } from '../../models';
+import { MovieState } from './models';
 import actions from './actions';
+import mutations from './mutations';
 
-export type Movie = {
-  title: string;
-  poster: string;
-  video: string;
-};
-export type MovieState = Movie[];
-
-const state: (() => MovieState) = () => [];
+const state: (() => MovieState) = () => ({
+  list: []
+});
 
 const namespaced = true;
 
-export const movies: Module<MovieState, RootState> = {
+const movies: Module<MovieState, RootState> = {
   namespaced,
   state,
   mutations,
   actions
 };
+
+export default movies;

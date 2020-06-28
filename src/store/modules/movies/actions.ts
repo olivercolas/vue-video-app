@@ -1,12 +1,14 @@
-import { ActionTree } from 'vuex';
-import { RootState } from '../../index';
-import { MovieState } from '.';
 import { fetchMovies } from '@/api';
+import { ActionTree } from 'vuex';
+import { RootState } from '../../models';
+import { MovieState } from './models';
 
 const actions: ActionTree<MovieState, RootState> = {
   async addMovies({ commit }) {
-    const movies = await fetchMovies();
-    commit('ADD_MOVIES', movies);
+    const res = await fetchMovies();
+    if (res) {
+      commit('ADD_MOVIES', res.data.data);
+    }
   }
 };
 

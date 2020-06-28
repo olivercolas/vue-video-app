@@ -1,10 +1,8 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-import { movies } from './modules/movies';
+import movies from './modules/movies';
 
 Vue.use(Vuex);
-
-export interface RootState {}
 
 const debug = process.env.NODE_ENV !== 'production';
 
