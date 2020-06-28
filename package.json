@@ -60,7 +60,11 @@
     },
     "rules": {
       "linebreak-style": 0,
-      "no-underscore-dangle": "off"
+      "no-underscore-dangle": "off",
+      "comma-dangle": [
+        "error",
+        "never"
+      ]
     },
     "overrides": [
       {
